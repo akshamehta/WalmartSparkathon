@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Baskervville', serif;
+      background-color: #f6faff;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2c3e50;
+      color: white;
+      position: fixed; top: 0; width: 100%;
+    }
+
+    .navbar input[type="text"] {
+      padding: 6px;
+      border: none;
+      border-radius: 4px;
+      width: 50%; height: 22.5px;
+      margin-top: 5px; margin-left: 15px;
+      font-size: 15px;
+    }
+
+    .navbar {
+      background-color: #230bac;
+      border: none;
+      padding-bottom: 5px;
+      color: white;
+      border-radius: 4px;
+    }
+
+    .cart-btn {
+      background-color: #230bac;
+      border: none;
+      padding: 0;
+      color: white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .product-container {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .product-image {
+      width: 80%;
+      max-height: 450px;
+      object-fit:cover;
+      border-radius: 20px;
+      text-align: center;
+      display: block; margin: auto;margin-top: 85px;
+      outline: 1px solid #bbbdff;
+    }
+
+    .product-info {
+      margin-top: 15px;
+    }
+
+    .product-info h1 {
+      font-size: 24px;
+      margin-bottom: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+    }
+
+    .rating {
+      color: #f1c40f;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      color: #290dc7;
+      font-weight: bold;
+      margin: 10px 0;
+      font-size: 20px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .description {
+      margin-bottom: 50px;
+      font-size: 17px;
+      margin-top: 20px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .action-buttons button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .add-to-cart-btn {
+      background-color: #a9acff; cursor: pointer;
+      color: black;
+      font-weight: 650; letter-spacing: 0.25px;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #989cff;
+    }
+
+    .buy-now-btn {
+      background-color: #290dc7; cursor: pointer;
+      font-weight: 600;
+      color: white;
+    }
+
+    .buy-now-btn:hover {
+      background-color: #5339ea;
+    }
+
+    .added {
+      background-color: #2ecc71 !important;
+    }
+
+    .modal-bg {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .modal {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 60%;
+      max-width: 400px;
+    }
+
+    .modal p {
+      margin-top: 0; font-size: 16px;
+    }
+
+    .cart-options {
+      display: flex; flex-direction: column;
+      gap: 2px;
+      margin: 15px 0;
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .modal-buttons button {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 670; letter-spacing: 0.25px;
+    }
+
+    .cancel-btn {
+      background-color: #f37c7c;
+      color: white;
+    }
+
+    .cancel-btn:hover {
+      background-color: #e76767;
+    }
+
+    .add-btn {
+      background-color: #a9acff; cursor: pointer;
+      color: black;
+      font-weight: 900; letter-spacing: 0.25px;
+    }
+
+    .add-btn.disabled {
+      background-color: #bdc3c7;
+      cursor: not-allowed;
+    }
+
+    .add-btn:hover {
+      background-color: #989cff;
+    }
+
+    @media (max-width: 600px) {
+      .navbar input[type="text"] {
+        width: 50%;
+      }
+
+      .action-buttons button {
+        font-size: 16px;
+        padding: 10px;
+      }
+    }
+
+    .cart-btn img {
+        width: 50px;
+        height: 50px;
+        margin: 0;
+        margin-top: 10px; margin-right: 10px;
+        outline: 1px solid #a9acff;
+        border-radius: 50%;
+        transition: all 0.4s ease;
+    }
+
+    .cart-btn img:hover {
+        outline: 3px solid #a9acff;
+        border-radius: 50%;
+    }
+
+    label {
+      font-weight: 500; font-size: 17px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <input type="text" placeholder="Search..." />
+    <button class="cart-btn"><img src="./cart.png" /></button>
+  </div>
+
+  <!-- Product Section -->
+  <div class="product-container">
+    <img src="./product.jpg" alt="Product" class="product-image" />
+    <div class="product-info">
+      <h1>Portronics Talk Three Wearable Bluetooth Speaker</h1>
+      <div class="rating">★★★★☆ (4.5)</div>
+      <div class="price">₹ 999</div>
+      <div class="description">
+        Black solid Talk Three Wearable Bluetooth Speaker With Mic. The product is IPX5 water resistant, dustproof, sturdy & portable,  with 10 hours playtime
+      </div>
+      <div class="action-buttons">
+        <button class="add-to-cart-btn" id="addToCartBtn">Add to Cart</button>
+        <button class="buy-now-btn">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Modal -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal">
+      <p>Select Carts</p>
+      <div class="cart-options">
+        <label><input type="checkbox" class="cart-checkbox" /> Tech Titans - group cart</label><br />
+        <label><input type="checkbox" class="cart-checkbox" /> My Cart (Only YOU can view)</label><br />
+      </div>
+      <div class="modal-buttons">
+        <button class="cancel-btn" id="cancelBtn">Cancel</button>
+        <button class="add-btn disabled" id="confirmAddBtn" disabled>Add</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    const modalBg = document.getElementById('modalBg');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const confirmAddBtn = document.getElementById('confirmAddBtn');
+    const checkboxes = document.querySelectorAll('.cart-checkbox');
+
+    // Open modal
+    addToCartBtn.addEventListener('click', () => {
+      if (!addToCartBtn.classList.contains('added')) {
+        modalBg.style.display = 'flex';
+      }
+    });
+
+    // Close modal on cancel
+    cancelBtn.addEventListener('click', () => {
+      modalBg.style.display = 'none';
+      confirmAddBtn.disabled = true;
+      confirmAddBtn.classList.add('disabled');
+      checkboxes.forEach(cb => cb.checked = false);
+    });
+
+    // Enable Add button only if at least one checkbox is selected
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const anyChecked = Array.from(checkboxes).some(c => c.checked);
+        confirmAddBtn.disabled = !anyChecked;
+        confirmAddBtn.classList.toggle('disabled', !anyChecked);
+      });
+    });
+
+    // On Add, close modal and update button
+    confirmAddBtn.addEventListener('click', () => {
+      if (!confirmAddBtn.disabled) {
+        modalBg.style.display = 'none';
+        addToCartBtn.textContent = 'Added to Cart';
+        addToCartBtn.classList.add('added');
+      }
+    });
+  </script>
+</body>
+</html>
