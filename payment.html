@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout | Vibrant Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff6f61;
+      --secondary: #6b5b95;
+      --accent: #88b04b;
+      --light: #f7f7f7;
+      --dark: #333;
+      --shadow: 0 6px 20px rgba(0,0,0,0.15);
+      --radius: 12px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+    }
+    header h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 20px;
+      color: #f0f0f0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .payment-form, .order-summary {
+      flex: 1;
+      min-width: 300px;
+      background: white;
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .payment-form h2, .order-summary h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: var(--dark);
+      text-align: center;
+    }
+
+    .payment-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .payment-form input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+    }
+
+    .payment-form button {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      padding: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .payment-form button:hover {
+      background: #e85c50;
+    }
+
+    .order-summary ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .order-summary li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .order-summary li.total {
+      font-weight: 700;
+      font-size: 18px;
+      margin-top: 20px;
+      border-top: 2px solid #eee;
+      padding-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--dark);
+      color: white;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Secure Checkout</h1>
+    <p>Complete your purchase and enjoy your new lifestyle picks!</p>
+  </header>
+
+  <div class="container">
+    <div class="payment-form">
+      <h2>Payment Details</h2>
+      <form>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="John Doe" required>
+        
+        <label for="address">Shipping Address</label>
+        <input type="text" id="address" placeholder="123 Main St, City" required>
+        
+        <label for="card">Card Number</label>
+        <input type="text" id="card" placeholder="1234 5678 9012 3456" required>
+        
+        <label for="expiry">Expiry Date</label>
+        <input type="text" id="expiry" placeholder="MM/YY" required>
+        
+        <label for="cvv">CVV</label>
+        <input type="password" id="cvv" placeholder="123" required>
+
+        <button type="submit">Pay ₹6,595</button>
+      </form>
+    </div>
+
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+      <ul>
+        <li><span>Rustic Ceramic Vase</span> <span>₹599</span></li>
+        <li><span>JBL Quantum Headset</span> <span>₹2,499</span></li>
+        <li><span>Summer Floral Dress</span> <span>₹1,499</span></li>
+        <li><span>Eco Yoga Mat</span> <span>₹999</span></li>
+        <li class="total"><span>Total</span> <span>₹6,595</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025. All rights reserved.
+  </footer>
+
+</body>
+</html>

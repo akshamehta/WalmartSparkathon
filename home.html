@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vibrant Store | Your Lifestyle Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff6f61;
+      --secondary: #6b5b95;
+      --accent: #88b04b;
+      --light: #f7f7f7;
+      --dark: #333;
+      --shadow: 0 6px 20px rgba(0,0,0,0.15);
+      --radius: 12px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 100px 20px 60px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+    }
+    header h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 22px;
+      color: #f0f0f0;
+    }
+    nav {
+      text-align: center;
+      margin-top: 20px;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #f0f0f0;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #f0f0f0;
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 30px;
+      text-align: center;
+      color: var(--dark);
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+    .product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .product-card .info {
+      padding: 16px;
+    }
+    .product-card h4 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+    .product-card span {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--dark);
+      color: white;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Great Deals Only</h1>
+    <p><i>Discover trends. Shop the best. Live vibrant.</i></p>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Categories</a>
+      <a href="#">Cart</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Home Decor</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/81iSUcEc1LL.jpg" alt="Decor Vase">
+        <div class="info">
+          <h4>Rustic Ceramic Vase</h4>
+          <span>₹599</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71PLjNNJC6L._UF1000,1000_QL80_.jpg" alt="Wall Art">
+        <div class="info">
+          <h4>Abstract Wall Art</h4>
+          <span>₹1,200</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://n-lighten.in/wp-content/uploads/O1CN01XLa3DQ2DbDcj5r0oR_21212210741778627-0-cib-5.jpg?w=640" alt="Lamp">
+        <div class="info">
+          <h4>Modern Table Lamp</h4>
+          <span>₹1,799</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">Electronics & Gadgets</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://www.lifelongindiaonline.com/cdn/shop/files/4_-_2024-10-21T152515.090_945eeb3c-5dbc-401c-bd72-281acee9f8e9.jpg?v=1731420447" alt="Power Bank">
+        <div class="info">
+          <h4>Mi 20000mAh Power Bank</h4>
+          <span>₹1,299</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://in.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwe58026ce/pdp/JBL_Quantum600_Lifestyle2.png?sw=904&sh=560" alt="Headset">
+        <div class="info">
+          <h4>JBL Quantum Headset</h4>
+          <span>₹2,499</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/81bSwYD-kcL.jpg" alt="Cooling Pad">
+        <div class="info">
+          <h4>RGB Cooling Pad</h4>
+          <span>₹899</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">Fashion & Style</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://i.pinimg.com/1200x/bc/68/17/bc6817697fee2c6006031eb7e12d01da.jpg" alt="Dress">
+        <div class="info">
+          <h4>Summer Floral Dress</h4>
+          <span>₹1,499</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://d1it09c4puycyh.cloudfront.net/catalog/product/8/9/898907884622538-_1_.JPG" alt="Shoes">
+        <div class="info">
+          <h4>Canvas Sneakers</h4>
+          <span>₹999</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://i.etsystatic.com/32646140/r/il/fa9e0b/3488616309/il_570xN.3488616309_lqrk.jpg" alt="Bag">
+        <div class="info">
+          <h4>Leather Handbag</h4>
+          <span>₹2,799</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">Books & Lifestyle</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71509TDsMTL._UF1000,1000_QL80_.jpg" alt="Book">
+        <div class="info">
+          <h4>"The Creative Mind"</h4>
+          <span>₹499</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://thepaperkind.com/wp-content/uploads/2023/11/weekly-bujo-spread-1024x1024.jpg" alt="Journal">
+        <div class="info">
+          <h4>Minimalist Journal</h4>
+          <span>₹299</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images-cdn.ubuy.co.in/648a83eaae99a17744598e5c-yoga-mat-thick-pilates-mat-for-women.jpg" alt="Yoga Mat">
+        <div class="info">
+          <h4>Eco Yoga Mat</h4>
+          <span>₹999</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 walmart Sparkathon. All rights reserved.
+  </footer>
+
+</body>
+</html>
