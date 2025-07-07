@@ -200,6 +200,7 @@
       const user = users.find(u => u.email === email && u.password === password);
       if (user) {
         showMessage("loginMsg", `Welcome back, ${user.username}!`, false);
+        window.location.href = "home.html";
       } else {
         showMessage("loginMsg", "Invalid email or password.", true);
       }
