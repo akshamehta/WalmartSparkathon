@@ -51,8 +51,9 @@
 
     .product-container {
       padding: 20px;
-      max-width: 600px;
+      max-width: 95%;
       margin: auto;
+      margin-top: 100px;
     }
 
     .product-image {
@@ -66,12 +67,12 @@
     }
 
     .product-info {
-      margin-top: 15px;
+      margin-top: 7px;
     }
 
     .product-info h1 {
       font-size: 24px;
-      margin-bottom: 0;
+      margin-bottom: 0; margin-top: 0;
       font-family: 'Montserrat', sans-serif;
       font-weight: 500;
     }
@@ -206,7 +207,7 @@
       background-color: #989cff;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .navbar input[type="text"] {
         width: 50%;
       }
@@ -214,6 +215,14 @@
       .action-buttons button {
         font-size: 16px;
         padding: 10px;
+      }
+
+      .product-container {
+        margin-top: 15px;
+      }
+
+      .product-image {
+        margin-bottom: 20px;
       }
     }
 
@@ -235,6 +244,44 @@
     label {
       font-weight: 500; font-size: 17px;
     }
+
+    .product-flexbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-left,
+.product-info {
+  width: 100%;
+}
+
+/* On wider screens, show two columns */
+@media (min-width: 768px) {
+  .product-flexbox {
+    flex-direction: row;
+    gap: 40px;
+    align-items: flex-start;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .product-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .product-info {
+    flex: 1;
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -242,18 +289,21 @@
   <!-- Navbar -->
   <div class="navbar">
     <input type="text" placeholder="Search..." />
-    <button class="cart-btn"><img src="./cart.png" /></button>
+    <button class="cart-btn"><img src="https://as1.ftcdn.net/jpg/01/67/08/56/1000_F_167085639_VZXKHZ4u0N6joMpoZMu9hDzO9HTFCynX.jpg" /></button>
   </div>
 
   <!-- Product Section -->
-  <div class="product-container">
-    <img src="./product.jpg" alt="Product" class="product-image" />
+<div class="product-container">
+  <div class="product-flexbox">
+    <div class="product-left">
+      <img src="https://in.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwe58026ce/pdp/JBL_Quantum600_Lifestyle2.png?sw=904&sh=560" alt="Product" class="product-image" />
+    </div>
     <div class="product-info">
-      <h1>Portronics Talk Three Wearable Bluetooth Speaker</h1>
+      <h1>JBL Quantum Headset</h1>
       <div class="rating">★★★★☆ (4.5)</div>
-      <div class="price">₹ 999</div>
+      <div class="price">₹ 2499</div>
       <div class="description">
-        Black solid Talk Three Wearable Bluetooth Speaker With Mic. The product is IPX5 water resistant, dustproof, sturdy & portable,  with 10 hours playtime
+        The JBL Quantum Headset is engineered for competitive gaming with powerful JBL QuantumSOUND Signature that brings every battle, footstep, and explosion to life. Whether you're strategizing with your team or enjoying solo campaigns, its voice focus boom mic ensures crystal-clear communication.
       </div>
       <div class="action-buttons">
         <button class="add-to-cart-btn" id="addToCartBtn">Add to Cart</button>
@@ -261,6 +311,8 @@
       </div>
     </div>
   </div>
+</div>
+
 
   <!-- Popup Modal -->
   <div class="modal-bg" id="modalBg">
