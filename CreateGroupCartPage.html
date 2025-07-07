@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Group Cart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      overflow-x: hidden;
+      font-family: 'Baskervville', serif;
+      background-color: #f6faff;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .photo-upload {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #e0e0e0;
+      margin: 0 auto 20px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .photo-upload input[type="file"] {
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .photo-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .edit-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 16px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 20px;
+      display: none;
+      pointer-events: none;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-family: 'Baskervville', serif;
+    }
+
+    input[type="text"], input[type="email"], input[type="tel"] {
+      width: 96.75%;
+      margin-bottom: 12px;
+      border: none;
+      outline: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      padding-top: 13px; padding-bottom: 13px;
+      padding-left: 10px;
+      font-family: 'Baskervville', serif;
+    }
+
+    .add-member-btn, .notify-btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 550; letter-spacing: 0.25px;
+    }
+
+    .add-member-btn {
+      background-color: #290dc7; cursor: pointer;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .notify-btn {
+      background-color: #290dc7; border-radius: 80px;
+    }
+
+    .add-member-btn:hover, .notify-btn:hover {
+      background-color: #5339ea;
+    }
+
+    .notify-btn:disabled,
+.disabled-btn {
+  background-color: #cccccc !important;
+  cursor: not-allowed;
+}
+
+    .member-input-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .member-input-group input {
+      width: 86%; display: inline-block;
+      margin-bottom: 0;
+      height: 15px;
+    }
+
+    .plus-btn {
+      padding: 0 12px;
+      font-size: 24px;
+      background-color: #b7b9ff;
+      border: none; display: inline-block;
+      border-radius: 50%;
+      cursor: pointer; width: 10%;
+      height: 40px;
+    }
+
+    .create-btn {
+  width: 30%; display: block;
+  margin-left: 70%;
+  padding-left: 12px; padding-right: 12px;
+  background-color: #a9acff;
+  color: black;
+  font-size: 16px;
+  border: none;
+  border-radius: 80px;
+  cursor: pointer;
+  margin-top: 0px; margin-bottom: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 650; letter-spacing: 0.25px;
+  height: 42px; align-items: center;
+}
+
+    .create-btn:hover {
+      background-color: #989cff;
+    }
+
+    @media (max-width: 480px) {
+      .member-input-group {
+        flex-direction: row;
+      }
+
+      .plus-btn {
+        align-self: flex-end;
+        width: 12%;
+        height: 40px;
+      }
+    }
+
+    .checkmark-container {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      animation: scaleUp 0.6s ease-out;
+    }
+
+    .checkmark-circle {
+      width: 100px;
+      height: 100px;
+      background-color: #4CAF50;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 48px;
+      animation: fadeInOut 2.5s ease forwards;
+    }
+
+    @keyframes scaleUp {
+      0% { transform: translate(-50%, -50%) scale(0.1); opacity: 0; }
+      50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(1); }
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .plusimg {
+      position: absolute; top: 78px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      font-size: 37px; font-weight: 100;
+      color: rgb(162, 162, 162);
+      margin: 0; padding: 0;
+      cursor: pointer;
+    }
+
+    #editOverlay {
+      background-color: black; z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <p class="plusimg">+</p>
+  <div class="container" id="mainContainer">
+    <form id="groupCartForm">
+      <label class="photo-upload" for="photoInput">
+  <img id="photoPreview" class="photo-preview" />
+  <div class="edit-overlay" id="editOverlay">Edit</div>
+</label>
+<input type="file" id="photoInput" accept="image/*" onchange="handlePhotoChange(event)" style="display: none;" />
+
+
+      <label for="groupName">Group Cart Name</label>
+      <input type="text" id="groupName" name="groupName" placeholder="Enter group cart name" required />
+
+      <button type="button" class="create-btn" onclick="handleCreate()">Create</button>
+<button type="button" class="add-member-btn" onclick="addMemberField()">Add member</button>
+
+      <div id="membersContainer"></div>
+
+      <button type="button" id="notifyBtn" class="notify-btn" style="display:none;" onclick="notifyMembers()">Notify Members</button>
+    </form>
+  </div>
+
+  <div class="checkmark-container" id="checkmarkContainer">
+    <div class="checkmark-circle">✔</div>
+  </div>
+
+  <script>
+    const membersContainer = document.getElementById("membersContainer");
+    const notifyBtn = document.getElementById("notifyBtn");
+
+    function handleCreate() {
+    document.getElementById("mainContainer").style.display = "none";
+    document.querySelector(".plusimg").style.display = "none";
+    const check = document.getElementById("checkmarkContainer");
+    check.style.display = "block";
+
+    setTimeout(() => {
+      window.location.href = "GroupCartPageOne.html";
+    }, 2700);
+  }
+
+    function createMemberField() {
+      const div = document.createElement("div");
+      div.className = "member-input-group";
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = "Enter Phone number or Email";
+      input.classList.add("member-input");
+
+      const plusBtn = document.createElement("button");
+      plusBtn.type = "button";
+      plusBtn.className = "plus-btn";
+      plusBtn.textContent = "+";
+      plusBtn.onclick = () => {
+        membersContainer.appendChild(createMemberField());
+        notifyBtn.style.display = "block";
+      };
+
+      div.appendChild(input);
+      div.appendChild(plusBtn);
+      return div;
+    }
+
+    function addMemberField() {
+      membersContainer.appendChild(createMemberField());
+      notifyBtn.style.display = "block";
+    }
+
+    function handlePhotoChange(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = document.getElementById('photoPreview');
+          img.src = e.target.result;
+          img.style.display = 'block';
+          document.getElementById('editOverlay').style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function notifyMembers() {
+      const inputs = document.querySelectorAll(".member-input");
+      const filled = Array.from(inputs).some(input => input.value.trim() !== "");
+
+      if (!filled) {
+        alert("Please enter at least one member.");
+        return;
+      }
+
+      // Clear form
+      document.getElementById("mainContainer").style.display = "none";
+      document.querySelector(".plusimg").style.display = "none";
+      const check = document.getElementById("checkmarkContainer");
+      check.style.display = "block";
+
+      // Redirect after animation
+      setTimeout(() => {
+        window.location.href = "GroupCartPageOne.html";
+      }, 2700);
+    }
+  </script>
+</body>
+</html>
