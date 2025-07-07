@@ -87,6 +87,7 @@
       box-shadow: var(--shadow);
       overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
     }
     .product-card:hover {
       transform: translateY(-8px) scale(1.02);
@@ -169,7 +170,7 @@
           <span>₹1,299</span>
         </div>
       </div>
-      <div class="product-card">
+      <div class="product-card" onclick="gotoproductpage()">
         <img src="https://in.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwe58026ce/pdp/JBL_Quantum600_Lifestyle2.png?sw=904&sh=560" alt="Headset">
         <div class="info">
           <h4>JBL Quantum Headset</h4>
@@ -243,6 +244,10 @@
   <footer>
     &copy; 2025 walmart Sparkathon. All rights reserved.
   </footer>
-
+  <script>
+    function gotoproductpage() {
+      window.location.href = "ProductPage.html";
+    }
+  </script>
 </body>
 </html>
