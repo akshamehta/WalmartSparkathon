@@ -371,7 +371,7 @@
   padding: 10px;
   top: 65px; /* adjust if needed */
   z-index: 1001;
-  min-width: 200px;
+  width: 243px;
 }
 
 .cart-link {
@@ -393,6 +393,21 @@
 
 .rewardslink:hover {
   background-color: #e9feff;
+}
+
+.newcartlink {
+  display: flex; flex-direction: row; gap: 10px;
+}
+
+.newcartlink button {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: none; background-color: #bbbdff; color: rgb(68, 68, 68);
+  text-align: center; align-items: center;
+  font-size: 25px;
+}
+
+.newcartlink p {
+  padding-bottom: 7px; margin-top: 10px;
 }
 
   </style>
@@ -420,6 +435,7 @@
     <div class="cart-link" onclick="location.href='GC2.html'">Tech Titans - group cart</div>
     <div class="cart-link" onclick="location.href='PC.html'">My Cart (Private)</div>
     <div class="cart-link rewardslink" onclick="location.href='Test_Rewards_Page.html'">Rewards 🏆</div>
+    <div class="cart-link newcartlink" onclick="location.href='CreateGroupCartPage.html'"><button>+</button><p>Create Group cart</p></div>
   </div>
       </div>
       <div class="nav-item">
