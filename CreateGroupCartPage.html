@@ -24,6 +24,7 @@
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-top: 130px;
     }
 
     .photo-upload {
@@ -73,7 +74,7 @@
       font-family: 'Baskervville', serif;
     }
 
-    input[type="text"], input[type="email"], input[type="tel"] {
+    .inputs {
       width: 96.75%;
       margin-bottom: 12px;
       border: none;
@@ -129,7 +130,14 @@
     .member-input-group input {
       width: 86%; display: inline-block;
       margin-bottom: 0;
-      height: 15px;
+      height: 18px;
+    outline: 1px solid #ccc;
+    border-radius: 8px; border: none;
+    font-size: 16px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 10px;
+    font-family: 'Baskervville', serif;
     }
 
     .plus-btn {
@@ -139,7 +147,7 @@
       border: none; display: inline-block;
       border-radius: 50%;
       cursor: pointer; width: 10%;
-      height: 40px;
+      height: 43px;
     }
 
     .create-btn {
@@ -211,7 +219,7 @@
     }
 
     .plusimg {
-      position: absolute; top: 78px;
+      position: absolute; top: 204px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 100;
@@ -224,9 +232,191 @@
     #editOverlay {
       background-color: black; z-index: 1000;
     }
+
+    .navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #230bac;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 1000;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 2.65vw;
+  font-weight: bold;
+  color: #333;
+}
+
+.search-container {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.search-input {
+  width: 448px; height: 25px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #007BFF;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 50px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.nav-item img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 5px;
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover {
+  transform: translateY(-3px);
+  color: #007BFF;
+}
+
+.nav-item:hover img {
+  transform: scale(1.2);
+}
+
+@media (max-width: 600px) {
+  .nav-buttons {
+    gap: 15px;
+  }
+
+  .nav-item span {
+    font-size: 12px;
+  }
+
+  .nav-item img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.nav-item span {
+  color: white;
+}
+
+.logo img {
+  width: 55px; height: 55px; border-radius: 50%;
+  margin-top: 5px;
+}
+
+.logoname {
+  color: #bbbdff; font-size: 25px; font-weight: 600;
+  padding-left: 10px; margin-right: 20px;
+}
+
+#cartNav {
+  position: relative;
+}
+
+.cart-dropdown {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 10px;
+  top: 65px; /* adjust if needed */
+  z-index: 1001;
+  width: 243px;
+}
+
+.cart-link {
+  padding: 8px 12px;
+  font-family: 'Montserrat', sans-serif;
+  color: #230bac; font-weight: 500;
+  border-radius: 5px; font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cart-link:hover {
+  background-color: #f0f0ff;
+}
+
+.rewardslink {
+  color: rgb(14, 133, 113);
+}
+
+.rewardslink:hover {
+  background-color: #e9feff;
+}
+
+.newcartlink {
+  display: flex; flex-direction: row; gap: 10px;
+}
+
+.newcartlink button {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: none; background-color: #bbbdff; color: rgb(68, 68, 68);
+  text-align: center; align-items: center;
+  font-size: 25px;
+}
+
+.newcartlink p {
+  padding-top: 5px;
+}
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><img src="https://media.istockphoto.com/id/1168197917/vector/letter-u-design-vector-in-blue-green-gradient.jpg?s=612x612&w=0&k=20&c=ipsCE3gF1QpMAwKr7zpnfJJIaMg-P93E-jSSI3p1faA=" /></div>
+
+    <div class="logoname">UnityMart</div>
+    <div class="search-container">
+      <input type="text" placeholder="Search..." class="search-input">
+    </div>
+
+    <div class="nav-buttons">
+      <div class="nav-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home Icon">
+        <span>Home</span>
+      </div>
+      <div class="nav-item" id="cartNav">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart Icon">
+  <span>Cart</span>
+  <div id="cartDropdown" class="cart-dropdown">
+    <div class="cart-link" onclick="location.href='PC.html'">My Cart (Private)</div>
+    <div class="cart-link rewardslink" onclick="location.href='Test_Rewards_Page.html'">Rewards 🏆</div>
+  </div>
+      </div>
+      <div class="nav-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/user.png" alt="Profile Icon">
+        <span>Account</span>
+      </div>
+    </div>
+  </nav>
+
   <p class="plusimg">+</p>
   <div class="container" id="mainContainer">
     <form id="groupCartForm">
@@ -234,11 +424,11 @@
   <img id="photoPreview" class="photo-preview" />
   <div class="edit-overlay" id="editOverlay">Edit</div>
 </label>
-<input type="file" id="photoInput" accept="image/*" onchange="handlePhotoChange(event)" style="display: none;" />
+<input type="file" class="inputs" id="photoInput" accept="image/*" onchange="handlePhotoChange(event)" style="display: none;" />
 
 
       <label for="groupName">Group Cart Name</label>
-      <input type="text" id="groupName" name="groupName" placeholder="Enter group cart name" required />
+      <input type="text" class="inputs" id="groupName" name="groupName" placeholder="Enter group cart name" required />
 
       <button type="button" class="create-btn" onclick="handleCreate()">Create</button>
 <button type="button" class="add-member-btn" onclick="addMemberField()">Add member</button>
@@ -264,7 +454,7 @@
     check.style.display = "block";
 
     setTimeout(() => {
-      window.location.href = "GroupCartPageOne.html";
+      window.location.href = "GC1.html";
     }, 2700);
   }
 
@@ -327,9 +517,21 @@
 
       // Redirect after animation
       setTimeout(() => {
-        window.location.href = "GroupCartPageOne.html";
+        window.location.href = "GC1.html";
       }, 2700);
     }
+
+    const cartNav = document.getElementById("cartNav");
+  const cartDropdown = document.getElementById("cartDropdown");
+
+  cartNav.addEventListener("click", function(e) {
+    e.stopPropagation();
+    cartDropdown.style.display = (cartDropdown.style.display === "block") ? "none" : "block";
+  });
+
+  document.addEventListener("click", function() {
+    cartDropdown.style.display = "none";
+  });
   </script>
 </body>
 </html>
