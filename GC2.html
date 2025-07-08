@@ -887,7 +887,7 @@
   padding: 10px;
   top: 65px;
   z-index: 1001;
-  min-width: 200px;
+  width: 243px;
 }
 
 .cart-link {
@@ -911,6 +911,21 @@
 
 .rewardslink:hover {
   background-color: #e9feff;
+}
+
+.newcartlink {
+  display: flex; flex-direction: row; gap: 10px;
+}
+
+.newcartlink button {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: none; background-color: #bbbdff; color: rgb(68, 68, 68);
+  text-align: center; align-items: center;
+  font-size: 25px;
+}
+
+.newcartlink p {
+  padding-top: 10px;
 }
 
 @media (max-width: 768px) {
@@ -963,6 +978,7 @@
         <div class="cart-link" onclick="location.href='GC2.html'">Tech Titans - group cart</div>
         <div class="cart-link" onclick="location.href='PC.html'">My Cart (Private)</div>
         <div class="cart-link rewardslink" onclick="location.href='Test_Rewards_Page.html'">Rewards 🏆</div>
+        <div class="cart-link newcartlink" onclick="location.href='CreateGroupCartPage.html'"><button>+</button><p>Create Group cart</p></div>
       </div>
     </div>
     <div class="nav-item">
@@ -1061,16 +1077,16 @@
       <div class="cart-items" id="cart-items-container">
         <h3 class="section-title" id="cart-items-title">
           <span>🛒</span>
-          Cart Items (2)
+          Cart Items (1)
         </h3>
         
         <div class="cart-item" data-item-id="1">
           <div class="item-header">
             <div class="item-info">
-              <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTArPPqWF_f2DzsJf-LD2OX6AfzUlGvPe_N2rW9kc6_xLdLFShtqRhhmcavgrkAlFSv2JBsjSygB_CWqV6mNZzSBzlNQx6ZFKv0iB0ssdHGFKd3nfzfR-Jemg" alt="Gaming Headset" class="item-image">
+              <img src="https://in.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwe58026ce/pdp/JBL_Quantum600_Lifestyle2.png?sw=904&sh=560" alt="Gaming Headset" class="item-image">
               <div class="item-details">
-                <h4>JBL Quantum 100 Gaming Headset</h4>
-                <div class="item-price">₹1,999</div>
+                <h4>JBL Quantum Headset</h4>
+                <div class="item-price">₹2,499</div>
                 <div class="item-meta">
                   <div class="added-by">
                     <div class="avatar">AJ</div>
@@ -1078,7 +1094,7 @@
                   </div>
                   <div class="meta-item item-timer">
                     <span>⏳</span>
-                    <span>Deal ends: 2h 15m</span>
+                    <span>Deal ends: 36h</span>
                   </div>
                   <div class="meta-item">
                     <span>⭐</span>
@@ -1101,7 +1117,7 @@
           </div>
         </div>
 
-        <div class="cart-item" data-item-id="2">
+        <!-- <div class="cart-item" data-item-id="2">
           <div class="item-header">
             <div class="item-info">
               <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTLp30h7Jj56F1GdgrbfentoC99OVmSOXR9BuHPBris2yBvqsyvc7Ps4IO0NWXmUqy5MLNJfdfx2778784xWtmQPz1xhmNTjqKZT_3GhK0Y2Zzd_x7VlIHH" alt="Laptop Cooling Pad" class="item-image">
@@ -1136,7 +1152,7 @@
               </button>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <!-- Alternative Products Section -->
@@ -1225,8 +1241,7 @@
   <script>
     // Initial cart data
     let cartItems = [
-        { id: 1, price: 1999, quantity: 1 },
-        { id: 2, price: 1000, quantity: 1 }
+        { id: 1, price: 2499, quantity: 1 }
     ];
 
     function formatCurrency(amount) {
