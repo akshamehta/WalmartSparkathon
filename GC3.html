@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Cart | Sparkathon 2025</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -23,8 +24,8 @@
       --gray-200: #F3F4F6;
       --gray-100: #F9FAFB;
       --white: #FFFFFF;
-      --ai-primary:#e0c153;
-      --ai-secondary: #e0c153;
+      --ai-primary: #A78BFA;
+      --ai-secondary: #A78BFA;
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
       --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -952,9 +953,56 @@
 .search-input {
   height: 43px; width: 475px;
 }
+
+.votes {
+  position: absolute; top: 1025px; right: 80px; z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-family: Arial, sans-serif;
+    }
+
+    .vote-button {
+      display: flex; flex-direction: row;
+      align-items: center;
+      gap: 5px;
+      border: none;
+      background: none;
+      font-size: 16px;
+    }
+
+    .upvote-icon {
+      color: rgb(8, 187, 8); font-size: 24px;
+    }
+
+    .downvote-icon {
+      margin-top: 7px;
+      color: rgb(212, 6, 6); font-size: 24px;
+    }
+
+    .vote-count {
+      font-weight: 600; font-size: 16px;
+    }
   </style>
 </head>
 <body>
+  <div class="votes">
+    <!-- Upvote -->
+    <div class="upvote">
+      <div class="vote-button">
+        <i class="fa-solid fa-thumbs-up upvote-icon"></i>
+        <span class="vote-count" id="upvote-count">3</span>
+      </div>
+    </div>
+    <!-- Downvote -->
+    <div class="downvote">
+      <button class="vote-button">
+        <i class="fa-solid fa-thumbs-down downvote-icon"></i>
+        <span class="vote-count" id="downvote-count">2</span>
+      </button>
+    </div>
+  </div>
+
   <!-- Navbar -->
   <nav class="navbar">
   <div class="logo">
@@ -1077,7 +1125,7 @@
       <div class="cart-items" id="cart-items-container">
         <h3 class="section-title" id="cart-items-title">
           <span>🛒</span>
-          Cart Items (2)
+          Cart Items (1)
         </h3>
         
         <div class="cart-item" data-item-id="1">
@@ -1086,16 +1134,15 @@
               <img src="https://in.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwe58026ce/pdp/JBL_Quantum600_Lifestyle2.png?sw=904&sh=560" alt="Gaming Headset" class="item-image">
               <div class="item-details">
                 <h4>JBL Quantum Headset</h4>
-                <div class="item-price">₹1,999</div>
+                <div class="item-price">₹1,699</div>
                 <div class="item-meta">
                   <div class="added-by">
                     <div class="avatar">AJ</div>
                     <span>Added by AJ</span>
-                    <span>To be bought by 2 more members</span>
                   </div>
                   <div class="meta-item item-timer">
                     <span>⏳</span>
-                    <span>Deal ends: 2h 15m</span>
+                    <span>Deal ends: 1h 5min</span>
                   </div>
                   <div class="meta-item">
                     <span>⭐</span>
@@ -1205,8 +1252,7 @@
   <script>
     // Initial cart data
     let cartItems = [
-        { id: 1, price: 1999, quantity: 1 },
-        { id: 2, price: 1000, quantity: 1 }
+        { id: 1, price: 2499, quantity: 1 }
     ];
 
     function formatCurrency(amount) {
