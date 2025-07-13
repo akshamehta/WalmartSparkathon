@@ -38,6 +38,7 @@
       padding: 50px;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+      margin-top: 150px;
     }
 
     h1 {
@@ -89,8 +90,7 @@
       font-weight: 500;
     }
 
-    input[type="text"],
-    input[type="number"] {
+    .inputsss {
       padding: 14px;
       border: 1px solid #ddd;
       border-radius: var(--radius);
@@ -99,8 +99,7 @@
       box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
     }
 
-    input[type="text"]:focus,
-    input[type="number"]:focus {
+    .inputsss:focus {
       border-color: var(--primary);
       outline: none;
       box-shadow: 0 0 8px rgba(224, 193, 83, 0.4);
@@ -141,9 +140,208 @@
         padding: 35px;
       }
     }
+
+    .navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #230bac;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 90px;
+  z-index: 1000;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+.logo img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+.logoname {
+  color: #bbbdff;
+  font-size: 25px;
+  font-weight: 600;
+  padding-left: 10px;
+  margin-right: 20px;
+  font-family: 'Baskervville', serif;
+}
+
+.search-container {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.search-input {
+  width: 450px;
+  height: 25px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #007BFF;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 50px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.nav-item img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 5px;
+  transition: transform 0.2s ease;
+}
+
+.nav-item:hover {
+  transform: translateY(-3px);
+  color: #007BFF;
+}
+
+.nav-item:hover img {
+  transform: scale(1.2);
+}
+
+.nav-item span {
+  color: white;
+}
+
+#cartNav {
+  position: relative;
+}
+
+.cart-dropdown {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 10px;
+  top: 65px;
+  z-index: 1001;
+  width: 243px;
+}
+
+.cart-link {
+  padding: 8px 12px;
+  font-family: 'Montserrat', sans-serif;
+  color: #230bac;
+  font-weight: 500;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cart-link:hover {
+  background-color: #f0f0ff;
+}
+
+.rewardslink {
+  color: rgb(14, 133, 113);
+}
+
+.rewardslink:hover {
+  background-color: #e9feff;
+}
+
+.newcartlink {
+  display: flex; flex-direction: row; gap: 10px;
+}
+
+.newcartlink button {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: none; background-color: #bbbdff; color: rgb(68, 68, 68);
+  text-align: center; align-items: center;
+  font-size: 25px;
+}
+
+.newcartlink p {
+  padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar input[type="text"] {
+    width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-buttons {
+    gap: 15px;
+  }
+
+  .nav-item span {
+    font-size: 12px;
+  }
+
+  .nav-item img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.search-input {
+  height: 43px; width: 475px;
+}
   </style>
 </head>
 <body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+  <div class="logo">
+    <img src="https://media.istockphoto.com/id/1168197917/vector/letter-u-design-vector-in-blue-green-gradient.jpg?s=612x612&w=0&k=20&c=ipsCE3gF1QpMAwKr7zpnfJJIaMg-P93E-jSSI3p1faA=" />
+  </div>
+
+  <div class="logoname">UnityMart</div>
+  <div class="search-container">
+    <input type="text" placeholder="Search..." class="search-input">
+  </div>
+
+  <div class="nav-buttons">
+    <div class="nav-item" onclick="location.href='home.html'">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home Icon">
+      <span>Home</span>
+    </div>
+    <div class="nav-item" id="cartNav">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Cart Icon">
+      <span>Cart</span>
+      <div id="cartDropdown" class="cart-dropdown">
+        <div class="cart-link" onclick="location.href='GC2.html'">Tech Titans - group cart</div>
+        <div class="cart-link" onclick="location.href='PC.html'">My Cart (Private)</div>
+        <div class="cart-link rewardslink" onclick="location.href='Test_Rewards_Page.html'">Rewards 🏆</div>
+        <div class="cart-link newcartlink" onclick="location.href='CreateGroupCartPage.html'"><button>+</button><p>Create Group cart</p></div>
+      </div>
+    </div>
+    <div class="nav-item">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/user.png" alt="Profile Icon">
+      <span>Account</span>
+    </div>
+  </div>
+</nav>
 
   <div class="container">
     <h1>Secure Checkout</h1>
@@ -158,28 +356,42 @@
     <form>
       <div>
         <label for="name">Full Name</label>
-        <input type="text" id="name" placeholder="Enter your full name">
+        <input type="text" class="inputsss" id="name" placeholder="Enter your full name">
       </div>
       <div>
         <label for="address">Shipping Address</label>
-        <input type="text" id="address" placeholder="Enter your shipping address">
+        <input type="text" class="inputsss" id="address" placeholder="Enter your shipping address">
       </div>
       <div>
         <label for="card">Card Number</label>
-        <input type="number" id="card" placeholder="xxxx xxxx xxxx xxxx">
+        <input type="number" class="inputsss" id="card" placeholder="xxxx xxxx xxxx xxxx">
       </div>
       <div class="row">
         <div>
           <label for="expiry">Expiry Date</label>
-          <input type="text" id="expiry" placeholder="MM/YY">
+          <input type="text" class="inputsss" id="expiry" placeholder="MM/YY">
         </div>
         <div>
           <label for="cvv">CVV</label>
-          <input type="number" id="cvv" placeholder="123">
+          <input type="number" class="inputsss" id="cvv" placeholder="123">
         </div>
       </div>
       <button type="submit">Pay</button>
     </form>
   </div>
+
+  <script>
+    const cartNav = document.getElementById("cartNav");
+  const cartDropdown = document.getElementById("cartDropdown");
+
+  cartNav.addEventListener("click", function(e) {
+    e.stopPropagation();
+    cartDropdown.style.display = (cartDropdown.style.display === "block") ? "none" : "block";
+  });
+
+  document.addEventListener("click", function() {
+    cartDropdown.style.display = "none";
+  });
+  </script>
 </body>
 </html>
